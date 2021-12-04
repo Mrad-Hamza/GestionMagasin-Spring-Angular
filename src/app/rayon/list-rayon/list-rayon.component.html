@@ -1,0 +1,61 @@
+<form #search="ngForm" (ngSubmit)="searchButton(search)">
+<mat-form-field appearance="outline" >
+  <mat-label>search
+  </mat-label>
+  <input matInput name="input" ngModel>
+</mat-form-field>
+<button type="submit" mat-icon-button><mat-icon>search</mat-icon></button>
+<button mat-icon-button (click)="sort()"><mat-icon>sort_by_alpha</mat-icon></button>
+
+<button mat-icon-button (click)="sortByProducts()"><mat-icon>filter_list</mat-icon></button>
+
+
+</form>
+
+
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-8" >
+        <h1 class="m-0" (click)="addButtonClicked()">Ajouter un rayon ?</h1>
+      </div><!-- /.col -->
+      <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="#">
+
+        </a></li>
+        <li class="breadcrumb-item active"></li>
+      </ol>
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+  <div *ngIf="addClicked">
+    <app-add-rayon (rayon)="add($event)"></app-add-rayon>
+  </div>
+<div class="row">
+  <div class="col-md-4" *ngFor="let rayon of rayons">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header"><strong>  {{rayon.libelleRayon}}   </strong></div>
+       <div *ngFor="let image of images" >
+        <!--<div *ngIf="image.rayon.idRayon == rayon.idRayon">
+          <img [src]=image.imageRayon>
+        </div>-->
+       </div>
+
+      <div class="card-body">
+        <p class="card-text">
+          <strong> Nombre de produits : {{rayon.produits.length}} </strong>
+        </p>
+        <p class="card-text"></p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-primary product-btn" (click)="navigateToDetail(rayon)">View Details
+              </button>
+            <button type="button" class="btn btn-sm btn-outline-secondary product-btn" (click)="delete(rayon)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

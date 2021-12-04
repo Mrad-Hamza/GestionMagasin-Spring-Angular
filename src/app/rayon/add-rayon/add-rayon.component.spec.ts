@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageContentComponent } from './page-content.component';
+import { AddRayonComponent } from './add-rayon.component';
 
-describe('PageContentComponent', () => {
-  let component: PageContentComponent;
-  let fixture: ComponentFixture<PageContentComponent>;
+describe('AddRayonComponent', () => {
+  let component: AddRayonComponent;
+  let fixture: ComponentFixture<AddRayonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageContentComponent ]
+      declarations: [ AddRayonComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageContentComponent);
+    fixture = TestBed.createComponent(AddRayonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Libelle</th>
+      <th scope="col">Code</th>
+      <th scope="col">Products Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td> {{rayon.libelleRayon}} </td>
+      <td> {{rayon.codeRayon}} </td>
+      <td> {{rayon.produits.length | json}} </td>
+      <td> <button type="button" name="update" (click)="update()" class="btn btn-dark">Update</button></td>
+      <td><button type="submit" class="btn btn-danger" [routerLink]="['/getRayons']" (click)="delete()">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="updateEtat">
+  <app-update-rayon [rayon]="rayon"></app-update-rayon>
+</div>
+
+
