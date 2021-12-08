@@ -1,16 +1,40 @@
+<style>
+  .huver:hover {
+    transform: scale(1.15);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  }
+  .huver {
+    transition: 0.5s ease;
+    margin:30px;
+  }
+  </style>
+<div class="container">
+
 <form #search="ngForm" (ngSubmit)="searchButton(search)">
-<mat-form-field appearance="outline" >
-  <mat-label>search
-  </mat-label>
-  <input matInput name="input" ngModel>
+  <mat-form-field appearance="outline" >
+    <mat-label>search
+    </mat-label>
+    <input matInput name="input" ngModel>
+
 </mat-form-field>
 <button type="submit" mat-icon-button><mat-icon>search</mat-icon></button>
 <button mat-icon-button (click)="sort()"><mat-icon>sort_by_alpha</mat-icon></button>
-
 <button mat-icon-button (click)="sortByProducts()"><mat-icon>filter_list</mat-icon></button>
 
-
 </form>
+<form #price="ngForm" (ngSubmit)="filterByPrice(price)">
+<div class="col-md-6"><span class="pull-left">
+  Prix Min <mat-slider thumbLabel tickInterval="1" name="min" ngModel  min="1" max="1000" step="50" value="1">  </mat-slider>
+  Prix Max <mat-slider thumbLabel tickInterval="1" name="max" ngModel min="1000" max="9000" step="500" value="1000">  </mat-slider>
+  <button mat-icon-button type="submit"><mat-icon>done</mat-icon></button>
+</span></div>
+</form>
+<div class="container">
+  <div class="row">
+
+  </div>
+</div>
+
 
 
 <div class="content-header">
@@ -32,17 +56,24 @@
   </div>
 <div class="row">
   <div class="col-md-4" *ngFor="let rayon of rayons">
-    <div class="card mb-4 shadow-sm">
+    <div class="huver">
+    <div class="card  mb-4 shadow-sm">
       <div class="card-header"><strong>  {{rayon.libelleRayon}}   </strong></div>
-       <div *ngFor="let image of images" >
-        <!--<div *ngIf="image.rayon.idRayon == rayon.idRayon">
-          <img [src]=image.imageRayon>
-        </div>-->
-       </div>
-
       <div class="card-body">
         <p class="card-text">
-          <strong> Nombre de produits : {{rayon.produits.length}} </strong>
+          <strong> Nombre de produits : {{rayon.produits.length}}
+            <!-- *ngFor="let image of rayon.imgs"-->
+            <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'" >
+                <mdb-carousel-item *ngFor="let image of rayon.imgs">
+                  <img src="{{image.imageRayon}}"  class="d-block w-100 h-150" >
+                </mdb-carousel-item>
+            </mdb-carousel>
+
+        <!--     <div *ngIf="image.rayon.idRayon == rayon.idRayon">
+             <img [src]=image.imageRayon>
+               {{images|json}}
+             </div>-->
+          </strong>
         </p>
         <p class="card-text"></p>
         <div class="d-flex justify-content-between align-items-center">
@@ -53,9 +84,21 @@
           </div>
         </div>
       </div>
-    </div>
-
+    </div></div>
   </div>
+
 </div>
 
 
+<!--<mdb-carousel [animation]="'slide'">
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" alt="First slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg" alt="Second slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Third slide">
+  </mdb-carousel-item>
+</mdb-carousel>
+-->

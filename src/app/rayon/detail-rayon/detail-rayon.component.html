@@ -10,7 +10,8 @@
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td> {{rayon.libelleRayon}} </td>
+      <td> {{rayon.libelleRayon}}
+      </td>
       <td> {{rayon.codeRayon}} </td>
       <td> {{rayon.produits.length | json}} </td>
       <td> <button type="button" name="update" (click)="update()" class="btn btn-dark">Update</button></td>
@@ -19,8 +20,13 @@
     </tr>
   </tbody>
 </table>
+
+<div *ngFor="let image of images">
+  <img src="{{image.imageRayon}}" class="img-thumbnail" class="rounded mx-auto d-block" width="200px" height="150px">
+</div>
+
+
 <div *ngIf="updateEtat">
   <app-update-rayon [rayon]="rayon"></app-update-rayon>
 </div>
-
 

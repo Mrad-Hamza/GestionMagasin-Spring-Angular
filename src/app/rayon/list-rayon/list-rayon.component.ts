@@ -24,14 +24,12 @@ export class ListRayonComponent implements OnInit {
   addClicked : Boolean = false;
   rayons ?: Rayon[];
   images ?: ImagesRayon[];
-  imgObject :any;
-  omgObj:any;
+  searchTxt :any;
+
   constructor(public rayonService:RayonService,public route:Router,private dialog : MatDialog) { }
 
   ngOnInit(): void {
     this.fetchRayonData()
-    this.fetchImagesData()
-    this.ngImage()
   }
 
   fetchRayonData() {
@@ -44,32 +42,22 @@ export class ListRayonComponent implements OnInit {
       }
     );
   }
-  fetchImagesData() {
-    this.rayonService.getAllImages().subscribe(
+
+  fetchImagesData(r:Rayon) {
+    this.rayonService.getAllImages(r.idRayon).subscribe(
       (d) => {
         this.images=d;
-        console.log(this.images)
-        console.log("succes")
       },
       (error) => {
-        console.log("erreur images :(")
+        console.log("aaaaaaaaaaerreur :(")
       }
     );
   }
-  ngImage() {
-    this.imgObject=[];
-    this.images?.forEach(image => {
-      this.omgObj.image="./assets/images/"+image.imageRayon;
-      this.omgObj.thumbImage="./assets/images/"+image.imageRayon;
-      console.log("aa"+this.omgObj)
-      this.imgObject.push(this.omgObj)
-    })
-    console.log(this.imgObject)
-  }
+
 
   navigateToDetail(rayon:Rayon) {
     console.log(rayon+"nnn")
-    this.route.navigate(['/updateRayon',rayon.idRayon])
+    this.route.navigate(['/update/',rayon.idRayon])
   }
   addButtonClicked(){
     this.addClicked = !this.addClicked;
@@ -90,11 +78,10 @@ export class ListRayonComponent implements OnInit {
   delete(rayon:Rayon) {
     this.rayonService.deleteRayon(rayon.idRayon,rayon).subscribe(
       (d) => {
-
         this.fetchRayonData();
         console.log("succes delete");      },
       (error) => {
-        console.log("erreur images :(")
+        console.log(error)
       }
     );
   }
@@ -108,7 +95,7 @@ export class ListRayonComponent implements OnInit {
         }
      },
       (error) => {
-        console.log("erreur images :(")
+        console.log("erreur recherche :(")
       }
     );
   }
@@ -119,7 +106,7 @@ export class ListRayonComponent implements OnInit {
           this.rayons=d;
        },
         (error) => {
-          console.log("erreur images :(")
+          console.log("erreurASC  :(")
         }
       )
     }
@@ -129,7 +116,7 @@ export class ListRayonComponent implements OnInit {
           this.rayons=d;
        },
         (error) => {
-          console.log("erreur images :(")
+          console.log("erreur desc :(")
         }
       )
     }
@@ -145,6 +132,18 @@ export class ListRayonComponent implements OnInit {
       }
     )
   }
+  filterByPrice(price:NgForm){
+    console.log(price.value)
+    this.rayonService.filterByPrice(price.value.min,price.value.max).subscribe(
+      (d) => {
+        this.rayons=d;
+     },
+      (error) => {
+        console.log("erreur filter price")
+      }
+    )
+  }
+  getRayonImages() {
 
-
+  }
 }

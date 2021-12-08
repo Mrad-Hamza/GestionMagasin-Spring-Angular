@@ -17,9 +17,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
-import { DialogComponent } from './material/dialog/dialog.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSliderModule} from '@angular/material/slider';
+import { MaterialModule } from './material/material.module';
+import { RayonModule } from './rayon/rayon.module';
 
 
 
@@ -28,26 +30,13 @@ import {MatIconModule} from '@angular/material/icon';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SideBarComponent,
-    ListRayonComponent,
-    DetailRayonComponent,
-    UpdateRayonComponent,
-    AddRayonComponent,
-    DialogComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    NgImageSliderModule,
-    ReactiveFormsModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatSnackBarModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatInputModule,
-    MatIconModule
+    MaterialModule,
+    RayonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

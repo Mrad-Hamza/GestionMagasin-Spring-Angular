@@ -21,13 +21,16 @@
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
     "@ngmodule/material-carousel": "^0.6.0",
+    "angular-bootstrap-md": "^12.1.0",
     "angular-responsive-carousel": "^2.1.2",
     "ng-image-slider": "^2.8.0",
+    "ng-mat-carousel": "^0.11.1",
     "ng2-carouselamos": "^4.1.0",
     "ngx-owl-carousel-o": "^7.0.1",
     "rxjs": "~7.4.0",
+    "rxjs-compat": "^6.6.7",
     "swiper": "^7.3.1",
-    "tslib": "^2.3.0",
+    "tslib": "^2.3.1",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

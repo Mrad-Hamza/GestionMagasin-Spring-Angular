@@ -6,9 +6,7 @@ import { AddRayonComponent } from './rayon/add-rayon/add-rayon.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},//redirection vers login par defaut
-  {path:'getRayons', component: ListRayonComponent},
-  {path:'updateRayon/:id',component:DetailRayonComponent},
-  {path:'addRayon',component:AddRayonComponent}
+  {path:'rayons',loadChildren: () => import('./rayon/rayon.module').then(m => m.RayonModule)},
 ];
 
 @NgModule({

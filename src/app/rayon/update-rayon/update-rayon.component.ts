@@ -6,6 +6,8 @@ import { RayonService } from 'src/app/service/rayon.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/material/dialog/dialog.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -15,12 +17,25 @@ import { DialogComponent } from 'src/app/material/dialog/dialog.component';
 })
 export class UpdateRayonComponent implements OnInit {
   @Input() rayon !: Rayon
+  addForm !:  FormGroup ;
   powers: string[] = [];
   submitted: boolean = false;
-  constructor(private serviceRayon:RayonService,private dialog:MatDialog) { }
+  constructor(private serviceRayon:RayonService,private dialog:MatDialog, private fb: FormBuilder) {
+
+  }
+  private message = {
+    author: "tutorialedge",
+    message: "this is a test message"
+  };
 
   ngOnInit(): void {
     console.log(this.rayon.idRayon,this.rayon.libelleRayon)
+  }
+  initializeForm(): void{
+    this.addForm = this.fb.group({
+      libelleRayon:['',Validators.required],
+      codeRayon:['',Validators.required]
+    })
   }
   onSubmit() {
 
@@ -37,4 +52,5 @@ export class UpdateRayonComponent implements OnInit {
     console.log(this.rayon)
     console.log("testtest")
   }
+
 }

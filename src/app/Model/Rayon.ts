@@ -6,5 +6,5 @@ export class Rayon
   libelleRayon !: string;
   idRayon !: number;
   produits !: any[];
-  img !: ImagesRayon[];
+  imgs !: ImagesRayon[];
 }
