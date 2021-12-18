@@ -1,0 +1,49 @@
+{
+  "Fournisseur": [
+    {
+      "firstName": "slim",
+      "lastName": "tana",
+      "email": "slimtana@esprit.tn",
+      "phone": 55593820,
+      "adresse": "ben ",
+      "idFournisseur": "1",
+      "id": 1
+    },
+    {
+      "firstName": "hedi",
+      "lastName": "ben hamed",
+      "email": "hedi.benhamed@esprit.tn",
+      "phone": "12345678",
+      "adresse": "manouba",
+      "idFournisseur": 2,
+      "id": 2
+    },
+    {
+      "firstName": "hbib",
+      "lastName": "knaini",
+      "email": "hbib.knaini@esprit.tn",
+      "phone": "666666666",
+      "adresse": "ariana",
+      "idFournisseur": 3,
+      "id": 3
+    },
+    {
+      "firstName": "ahmed",
+      "lastName": "ahmed",
+      "email": "ahmed",
+      "phone": "444441",
+      "adresse": "nabbel",
+      "idFournisseur": "4",
+      "id": 4
+    },
+    {
+      "firstName": "h",
+      "lastName": "ben hamed",
+      "email": "asma.asma@esprit.tn",
+      "phone": "12345678",
+      "adresse": "S1,calgary,Alberta,Canada",
+      "idFournisseur": 5,
+      "id": 5
+    }
+  ]
+}

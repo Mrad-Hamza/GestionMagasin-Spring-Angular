@@ -1,0 +1,36 @@
+<div>
+  <div> 
+    <h1 *ngIf="ListFournisseur "> Displaying {{ListFournisseur.length }} providers </h1>
+  </div>
+  <br>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col" >idFournisseur</th>
+            <th scope="col">firstName</th>
+            <th scope="col">lastName</th>
+            <th scope="col">Email </th>
+            <th scope="col">phone</th>
+            <th scope="col">adresse</th>
+            <th scope="col">Action</th>
+            
+          </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let li of ListFournisseur let i=index;">
+          <th scope="row">{{li.idFournisseur}}</th>
+          <td>{{li.firstName }}</td>
+          <td>{{li.lastName}}</td>
+          <td>{{li.email }}</td>
+          <td>{{li.phone}}</td>
+          <td>{{li.adresse}}</td>
+          <td>  <button class="btn btn-primary" (click)="Delete(li.idFournisseur)"> Delete</button>
+            <button class="btn btn-primary" (click)="Update(li.idFournisseur)"> Update</button></td>
+    
+        </tr>
+ 
+    <tbody>
+      
+  </table>
+  
+</div>

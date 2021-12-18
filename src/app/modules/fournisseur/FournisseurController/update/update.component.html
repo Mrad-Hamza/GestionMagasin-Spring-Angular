@@ -1,0 +1,27 @@
+<form #modelF="ngForm">
+  
+    <label>Id Fournisseur </label>
+    <input type="number" class="form-control" name="idFournisseur" [(ngModel)]="fournisseur.idFournisseur" #idFournisseur="ngModel" disabled>
+    
+
+    <label>firstName</label>
+    <input type="text" class="form-control" [(ngModel)]="fournisseur.firstName" #firstName="ngModel" name="firstName"  >
+    
+    <label>lastName</label>
+    <input type="text" class="form-control" name="lastName" [(ngModel)]="fournisseur.lastName" #lastName="ngModel">
+    
+    <label>email</label>
+    <input type="text" class="form-control" name="email" [(ngModel)]="fournisseur.email" #email="ngModel">
+    
+    <label>phone</label>
+    <input type="text" class="form-control" name="phone" [(ngModel)]="fournisseur.phone" #phone="ngModel">
+    
+    <label>adresse</label>
+    <input type="text" class="form-control" name="adresse" [(ngModel)]="fournisseur.adresse" #adresse="ngModel">
+
+
+     <br>
+     <input type="submit" class="btn btn-primary" value="Update" (click)="UpdateFournisseur(modelF.value)">
+     
+
+</form>

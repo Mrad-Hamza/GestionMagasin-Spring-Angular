@@ -1,0 +1,67 @@
+<mat-card >
+<mat-card-title>  Create New Provider </mat-card-title>
+
+<form  [formGroup]="FournisseurForm"(ngSubmit)="SaveFournisseur(FournisseurForm.value)" >
+    
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>FirstName</mat-label>
+          <input matInput placeholder="firstName" formControlName="firstName" type="text" class="form-control" id="firstName">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-error>
+            firstName is required
+          </mat-error>
+        </mat-form-field>
+      </p> 
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>LastName</mat-label>
+          <input matInput placeholder="lastName" formControlName="lastName" type="text" class="form-control" id="lastName">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-error>
+            lastName is required
+          </mat-error>
+        </mat-form-field>
+      </p>        
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="email" type="text" class="form-control" id="email">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-error *ngIf="FournisseurForm.controls['email'].errors && FournisseurForm.controls['email'].hasError('required')"> 
+            email is required
+          </mat-error>
+          <mat-error *ngIf="FournisseurForm.controls['email'].errors && FournisseurForm.controls['email'].hasError('email')">
+            email is not valid
+          </mat-error>
+        </mat-form-field>
+      </p>        
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="Phone" formControlName="phone" type="text" class="form-control" id="phone">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-error *ngIf="FournisseurForm.controls['phone'].errors && FournisseurForm.controls['phone'].hasError('required')">
+            Phone Number is required
+          </mat-error>
+          <mat-error *ngIf="FournisseurForm.controls['phone'].errors && FournisseurForm.controls['phone'].hasError('maxlength')">
+            Phone Number should be 8 digits
+          </mat-error>
+        </mat-form-field>
+      </p>        
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Adresse</mat-label>
+          <input matInput placeholder="Adresse" formControlName="adresse" type="text" class="form-control" id="adresse">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-error>
+            adresse is required
+          </mat-error>
+        </mat-form-field>
+     
+      </p>      
+      
+
+    <button type="submit" class="btn btn-primary" [disabled]="!FournisseurForm.valid" >Submit</button>
+  </form>
+</mat-card>
